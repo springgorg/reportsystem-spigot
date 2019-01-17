@@ -1,0 +1,12 @@
+name: ReportSystem
+version: 1.0
+main: fr.springg.reportsystem.Main
+authors: [Spring_g]
+description: Système de report avec MySQL
+website: https://mqster1.000webhostapp.com
+permissions:
+  report.receive
+
+commands:
+  report:
+    description: Signaler un joueur.
