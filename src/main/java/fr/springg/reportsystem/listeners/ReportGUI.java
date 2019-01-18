@@ -16,13 +16,13 @@ import java.util.Arrays;
 
 public class ReportGUI implements Listener {
 
-    private static String title = "§aReport";
+    private static String title = "§aReport §8>> §e§l";
     private static Inventory inv;
     private static String name;
 
     public static void openGui(String targetName){
         name = targetName;
-        inv = Bukkit.createInventory(null, 6*9, title);
+        inv = Bukkit.createInventory(null, 6*9, title + name);
 
         ItemStack killAura = new ItemStack(Material.IRON_SWORD);
         ItemMeta kM = killAura.getItemMeta();

@@ -1,5 +1,6 @@
 package fr.springg.reportsystem.commands;
 
+import fr.springg.reportsystem.listeners.ReportGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,7 +22,7 @@ public class Commands implements CommandExecutor {
                         p.sendMessage("§cCe joueur n'est pas connecté ou n'existe pas !");
                         return false;
                     } else {
-
+                        ReportGUI.openGui(target.getName());
                     }
                 }
 

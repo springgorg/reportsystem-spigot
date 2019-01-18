@@ -45,7 +45,7 @@ public class Main extends JavaPlugin {
     }
 
     private void setupSQL(){
-        sql.connect(dbconfig.getString("database;host"), dbconfig.getString("database.dbname"), dbconfig.getInt("database.port"), dbconfig.getString("database.user"), dbconfig.getString("database.pass"));
+        sql.connect(dbconfig.getString("database.host"), dbconfig.getString("database.dbname"), dbconfig.getInt("database.port"), dbconfig.getString("database.user"), dbconfig.getString("database.pass"));
 
         sql.query("CREATE TABLE IF NOT EXISTS reports(" +
                 "id INT NOT NULL AUTO_INCREMENT PRIMARY_KEY," +
