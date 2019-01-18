@@ -24,11 +24,22 @@ public class ReportGUI implements Listener {
         name = targetName;
         inv = Bukkit.createInventory(null, 6*9, title + name);
 
+        // ItemStacks
         ItemStack killAura = new ItemStack(Material.IRON_SWORD);
         ItemMeta kM = killAura.getItemMeta();
         kM.setDisplayName("§cKillAura");
         kM.setLore(Arrays.asList("§aSignaler un §cKillAura"));
         killAura.setItemMeta(kM);
+
+        ItemStack fly = new ItemStack(Material.FEATHER);
+        ItemMeta fM = fly.getItemMeta();
+        fM.setDisplayName("§fFly");
+        fM.setLore(Arrays.asList("§aSignaler un §fFly"));
+        fly.setItemMeta(fM);
+
+        // Inventory item position.
+        inv.setItem(0, killAura);
+        inv.setItem(1, fly);
     }
 
     @EventHandler
@@ -43,6 +54,13 @@ public class ReportGUI implements Listener {
 
                 case IRON_SWORD:
                     Main.getInstance().reports.add(new Report(name, p.getName(), "KillAura"));
+                    p.sendMessage("§aVotre report a bien été envoyé !");
+                    e.setCancelled(true);
+                    p.closeInventory();
+                    break;
+
+                case FEATHER:
+                    Main.getInstance().reports.add(new Report(name, p.getName(), "Fly"));
                     p.sendMessage("§aVotre report a bien été envoyé !");
                     e.setCancelled(true);
                     p.closeInventory();

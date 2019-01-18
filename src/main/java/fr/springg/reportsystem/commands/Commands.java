@@ -2,6 +2,7 @@ package fr.springg.reportsystem.commands;
 
 import fr.springg.reportsystem.listeners.ReportGUI;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,6 +24,7 @@ public class Commands implements CommandExecutor {
                         return false;
                     } else {
                         ReportGUI.openGui(target.getName());
+                        p.playSound(p.getLocation(), Sound.NOTE_PLING, 0.4f, 0.4f);
                     }
                 }
 
