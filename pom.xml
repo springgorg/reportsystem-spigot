@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.springg.reportsystem</groupId>
-    <artifactId>ReportSystem</artifactId>
+    <artifactId>ReportSystem-Spigot</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>ReportSystem</name>
+    <name>ReportSystem-Spigot</name>
 
     <description>Système de report public avec MySQL</description>
     <properties>
