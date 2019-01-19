@@ -48,11 +48,11 @@ public class MySQL {
     }
 
     public void query(String qry){
-        String host = Main.getInstance().dbconfig.getString("database.host");
-        String dbname = Main.getInstance().dbconfig.getString("database.dbname");
-        String user = Main.getInstance().dbconfig.getString("database.user");
-        String pass = Main.getInstance().dbconfig.getString("database.pass");
-        int port = Main.getInstance().dbconfig.getInt("database.port");
+        final String host = Main.getInstance().dbconfig.getString("database.host");
+        final String dbname = Main.getInstance().dbconfig.getString("database.dbname");
+        final String user = Main.getInstance().dbconfig.getString("database.user");
+        final String pass = Main.getInstance().dbconfig.getString("database.pass");
+        final int port = Main.getInstance().dbconfig.getInt("database.port");
         try  (Connection conn = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + dbname, user, pass); Statement state = conn.createStatement()){
             state.execute(qry);
         } catch (SQLException e){

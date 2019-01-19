@@ -8,4 +8,12 @@ public class ReportManager {
         Main.getInstance().sql.query("INSERT INTO reports(reported, date, author, reason) VALUES(" + report.getName() + ", CURDATE(), " + report.getAuthor() + ", " + report.getReason() + ")");
     }
 
+    public void getLastReports(){
+        Main.getInstance().sql.query("SELECT * FROM reports LIMIT 0, 20");
+    }
+
+    public void remove(Report report){
+        // Delete a report.
+    }
+
 }

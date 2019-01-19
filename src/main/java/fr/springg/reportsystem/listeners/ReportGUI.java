@@ -37,9 +37,23 @@ public class ReportGUI implements Listener {
         fM.setLore(Arrays.asList("§aSignaler un §fFly"));
         fly.setItemMeta(fM);
 
+        ItemStack xray = new ItemStack(Material.DIAMOND_ORE);
+        ItemMeta xM = xray.getItemMeta();
+        xM.setDisplayName("§bXray");
+        xM.setLore(Arrays.asList("§aSignaler un §bXray"));
+        xray.setItemMeta(xM);
+
+        ItemStack aimAssist = new ItemStack(Material.COMPASS);
+        ItemMeta aM = aimAssist.getItemMeta();
+        aM.setDisplayName("§eAimAssist");
+        aM.setLore(Arrays.asList("§aSignaler un §eAimAssist"));
+        aimAssist.setItemMeta(aM);
+
         // Inventory item position.
         inv.setItem(0, killAura);
         inv.setItem(1, fly);
+        inv.setItem(2, xray);
+        inv.setItem(3, aimAssist);
     }
 
     @EventHandler
@@ -61,6 +75,20 @@ public class ReportGUI implements Listener {
 
                 case FEATHER:
                     Main.getInstance().reports.add(new Report(name, p.getName(), "Fly"));
+                    p.sendMessage("§aVotre report a bien été envoyé !");
+                    e.setCancelled(true);
+                    p.closeInventory();
+                    break;
+
+                case DIAMOND_ORE:
+                    Main.getInstance().reports.add(new Report(name, p.getName(), "Xray"));
+                    p.sendMessage("§aVotre report a bien été envoyé !");
+                    e.setCancelled(true);
+                    p.closeInventory();
+                    break;
+
+                case COMPASS:
+                    Main.getInstance().reports.add(new Report(name, p.getName(), "AimAssist"));
                     p.sendMessage("§aVotre report a bien été envoyé !");
                     e.setCancelled(true);
                     p.closeInventory();
