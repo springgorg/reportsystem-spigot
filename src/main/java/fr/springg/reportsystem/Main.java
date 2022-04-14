@@ -2,7 +2,6 @@ package fr.springg.reportsystem;
 
 import fr.springg.reportsystem.commands.Commands;
 import fr.springg.reportsystem.listeners.PlayerListener;
-import fr.springg.reportsystem.listeners.ReportGUI;
 import fr.springg.reportsystem.mods.ReportManager;
 import fr.springg.reportsystem.sql.MySQL;
 import org.bukkit.Bukkit;
@@ -33,7 +32,6 @@ public class Main extends JavaPlugin {
     private void setup(){
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new PlayerListener(), this);
-        pm.registerEvents(new ReportGUI(), this);
 
         getCommand("report").setExecutor(new Commands());
     }

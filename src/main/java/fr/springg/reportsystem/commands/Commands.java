@@ -1,6 +1,8 @@
 package fr.springg.reportsystem.commands;
 
-import fr.springg.reportsystem.listeners.ReportGUI;
+import fr.springg.reportsystem.Main;
+import fr.springg.reportsystem.invs.ReportInv;
+import fr.springg.reportsystem.invs.ReportLastsInv;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -23,9 +25,16 @@ public class Commands implements CommandExecutor {
                         p.sendMessage("§cCe joueur n'est pas connecté ou n'existe pas !");
                         return false;
                     } else {
-                        ReportGUI.openGui(target.getName());
+                        ReportInv r = new ReportInv();
+                        r.setName(target.getName());
+                        r.open(p);
                         p.playSound(p.getLocation(), Sound.NOTE_PLING, 0.4f, 0.4f);
                     }
+                } else if(args[0].equalsIgnoreCase("lasts")){
+                    new ReportLastsInv().open(p);
+                    p.playSound(p.getLocation(), Sound.NOTE_PLING, 0.4f,0.4f);
+                } else if(args[0].equalsIgnoreCase("total")){
+                    p.sendMessage("§aVoici le nombre de total qu'il y a dans notre base de données §8: §f" + Main.getInstance().reports.getTotal());
                 }
 
             } else {

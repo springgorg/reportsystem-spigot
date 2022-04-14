@@ -2,10 +2,7 @@ package fr.springg.reportsystem.sql;
 
 import fr.springg.reportsystem.Main;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class MySQL {
 
