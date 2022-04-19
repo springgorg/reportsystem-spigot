@@ -31,10 +31,20 @@ public class Commands implements CommandExecutor {
                         p.playSound(p.getLocation(), Sound.NOTE_PLING, 0.4f, 0.4f);
                     }
                 } else if(args[0].equalsIgnoreCase("lasts")){
-                    new ReportLastsInv().open(p);
+                    if(p.hasPermission("report.use")) {
+                        new ReportLastsInv().open(p);
+                    } else {
+                        p.sendMessage("§cVous n'avez pas la permission d'utiliser cette commande !");
+                        return false;
+                    }
                     p.playSound(p.getLocation(), Sound.NOTE_PLING, 0.4f,0.4f);
                 } else if(args[0].equalsIgnoreCase("total")){
-                    p.sendMessage("§aVoici le nombre de total qu'il y a dans notre base de données §8: §f" + Main.getInstance().reports.getTotal());
+                    if(p.hasPermission("report.use")) {
+                        p.sendMessage("§aVoici le nombre de total qu'il y a dans notre base de données §8: §f" + Main.getInstance().reports.getTotal());
+                    } else {
+                        p.sendMessage("§cVous n'avez pas la permission d'utiliser cette commande !");
+                        return false;
+                    }
                 }
 
             } else {

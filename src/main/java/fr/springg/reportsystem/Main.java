@@ -40,9 +40,9 @@ public class Main extends JavaPlugin {
         createFile("database");
 
         dbconfig.set("database.host", "localhost");
-        dbconfig.set("database.dbname", "database");
+        dbconfig.set("database.dbname", "testdb");
         dbconfig.set("database.user", "root");
-        dbconfig.set("database.pass", "root");
+        dbconfig.set("database.pass", "");
         dbconfig.set("database.port", 3306);
     }
 

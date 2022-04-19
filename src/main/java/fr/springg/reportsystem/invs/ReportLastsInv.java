@@ -16,7 +16,7 @@ public class ReportLastsInv extends FastInv {
     public ReportLastsInv() {
         super(3*9, "§cLes 20 derniers reports");
 
-        setItem(26, new ItemBuilder(Material.BARRIER).setName("§cFermer").toItemStack());
+        setItem(26, new ItemBuilder(Material.BARRIER).setName("§cFermer le menu").toItemStack());
 
         try {
             PreparedStatement sts = Main.getInstance().sql.getConnection().prepareStatement("SELECT * FROM reports LIMIT 0, 20");
@@ -43,8 +43,15 @@ public class ReportLastsInv extends FastInv {
 
             if(it == null) return;
             if(it.getType()==Material.BARRIER) p.closeInventory();
+            if(it.getType()==Material.BARRIER && it.getItemMeta().getDisplayName().isEmpty()) p.closeInventory();
+            if(it.getItemMeta().getDisplayName().isEmpty()) p.closeInventory();
+
+            if(it.getType()==Material.SKULL_ITEM && !it.getItemMeta().getDisplayName().isEmpty()){
+                ReportOptionsInv inv = new ReportOptionsInv();
+                inv.setName(it.getItemMeta().getDisplayName());
+            }
             /* Créer un inventaire qui peut :
-             * Supprimer ou pas les reports
+             * Supprimer les reports
              * Ban les gens report
              * Kick les gens report
              * Mute les gens report
